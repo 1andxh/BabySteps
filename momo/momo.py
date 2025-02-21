@@ -16,6 +16,8 @@ subsrcibers = [
         'wallet info' : {'wallet_id':'0242464744', 'pin':'7771'}
     }
 ]
+
+
 balance = 2470.00
 account_pin = "0011"
 
@@ -75,16 +77,117 @@ def transfer_money():
                 else:
                     print("Number Mismatch")
                     
-                    
-                        
-
             def non_momo_user():...
 
             def send_with_care():...
 
             def favorite():...
 
-            def other_networks():...
+            def other_networks():
+                at_users = [                       
+                        {
+                        'name' : 'Dan Dadan' ,
+                        'mobile' : '0569292782' ,
+                        # 'wallet info' : {'wallet_id':'0569292782' }
+                        },
+                        {
+                        'name' : 'Kwmame Nkrumah' ,
+                        'mobile' : '0269092902' ,
+                        # 'wallet info' : {'wallet_id':'0509292782' }
+                        },
+                        {
+                        'name' : 'Adwoa Safo' ,
+                        'mobile' : '0569119112' ,
+                        # 'wallet info' : {'wallet_id':'0509292782' }
+                        }
+                    ]
+                telecel_users = [
+                        {
+                        'name' : 'Dan Dadan' ,
+                        'mobile' : '0509292782' ,
+                        'wallet info' : {'wallet_id':'0509292782' }
+                        },
+                        {
+                        'name' : 'Dan Dadan' ,
+                        'mobile' : '0509292782' ,
+                        'wallet info' : {'wallet_id':'0509292782' }
+                        },
+                        {
+                        'name' : 'Dan Dadan' ,
+                        'mobile' : '0509292782' ,
+                        'wallet info' : {'wallet_id':'0509292782' }
+                        }
+
+                    ]
+
+                def at_user():
+                    at_user_number = input("Enter AT number: ")
+                    check_number = input("Enter number again: ")   
+                    if len(at_user_number) == 10 and at_user_number.startswith(("026","056")) :              
+                        if check_number != at_user_number:
+                            print('Number mismatch. Try Again')
+                        else:    
+                            for user in at_users:  
+                                    if user['mobile'] == at_user_number:  
+                                        # found_user = user
+                                        choice = input(f"Confirm Receiver: {user['name']}\nPress 1 to confirm: ")
+                                        if choice == "1":
+                                            return
+                                        else:
+                                            print("Invalid input. Transaction cancelled.")
+                                        return
+                            else:
+                                print("user doesn't exist")
+                                return
+                        try:
+                            amount = float(input("Enter amount: "))
+                            if amount <= 0:
+                                print("Amount must not be zero!")
+                                return
+                            if amount >= balance:
+                                print("Insufficient funds")
+                                return
+                        except ValueError:
+                            print("Enter a valid amount!")
+                    else:
+                        print("You have entered an non-AT number")
+
+                def telecel_user():
+                    telecel_number = input("Enter telecel number: ")
+                    repeat_telecel_number = input("Enter number again: ")
+                    if repeat_telecel_number != telecel_number:
+                        print("Number mismatch. Try Again")
+                    else:
+                        for user in telecel_users:
+                            if user['mobile'] == telecel_number:
+                                choice = input(f"Confirm Receiver: {user['name']}\nPress 1 to confirm: ")
+                                if choice == 1:
+                                    return
+                     
+
+                user_input = input("1. AT\n2. Telecel\n3. GhanaPay\n")
+                if user_input == "1":
+                    at_user()
+                elif user_input == "2":
+                    telecel_user()
+                elif user_input == "3":
+                    ghanapay()
+                     
+                # Sample at_users data structure
+                
+                
+
+                
+                
+
+                
+                    
+                    # telecel_user()
+                def ghanapay():...
+
+                    # ghanapay()
+                
+
             
             def banks():...
 
